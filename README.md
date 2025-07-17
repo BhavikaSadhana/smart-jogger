@@ -1,43 +1,48 @@
-# 🏃 Smart Jogger – A Smart Running Assistant
+# 🏃‍♀️ Jogging Tracker Web App
 
-Smart Jogger is a web-based app that helps runners track their route, detect movement, and stay informed about their network connectivity. It uses modern Web APIs to enhance the outdoor jogging experience.
+A simple web application that tracks your jogging route using GPS, displays it on a canvas, calculates total distance covered, and visually moves an avatar along the path.
 
-## 🌐 Live Features
+## 🚀 Features
 
-- 📍 **Real-time location tracking** with **Geolocation API**
-- 🗺️ **Live route drawing** on a canvas using **Canvas API**
-- 👀 **Inactivity detection** using **Intersection Observer API**
-- 📶 Optional: Warns users about poor connection with the **Network Information API**
+- Live GPS tracking using the browser’s Geolocation API  
+- Real-time distance calculation using the Haversine formula  
+- Smooth route tracking with GPS data smoothing  
+- Visual jog path rendered on HTML5 Canvas  
+- Start / Stop / Reset controls  
+- Persistent route storage using `localStorage`  
+- Moving avatar showing current position 
 
-## 🛠 Technologies Used
+## 🛠️ Technologies Used
 
-- HTML, CSS, JavaScript
-- Web APIs:
-  - Geolocation API
-  - Canvas API
-  - Intersection Observer API
-  - Network Information API (Optional)
+- HTML5  
+- CSS3  
+- JavaScript  
+- Geolocation API  
+- Canvas API  
 
-## 🚀 How to Use
+## 📂 Project Structure
 
-1. **Download or clone** the repository.
-2. Open index.html in any modern browser (Chrome recommended).
-3. Click **Start Jog** to begin:
-   - The app will request location permission.
-   - Your avatar will move as you walk or jog.
-   - Your route will be drawn live on the canvas.
-   - If your avatar is out of view, you’ll see a pause warning.
-   - If the network is weak, you'll get a notification.
+```
+jogging-tracker/
+├── index.html         # Main HTML layout
+├── styles.css         # Styling for the UI and avatar
+├── script.js          # Logic for GPS tracking, drawing, and distance
+└── README.md          # Project documentation
+```
 
-## 📁 Project Structure
+## 📦 How to Run
 
-smart-jogger/
-│
-├── index.html       # Main HTML page
-├── styles.css       # Styling for canvas and layout
-├── script.js        # Main logic with API usage
-└── README.md        # Project description and instructions
+1. **Clone or Download** this repository.
+2. Open `index.html` in any modern browser (Chrome/Firefox/Edge).
+3. Allow GPS permission when prompted.
+4. Click **Start Jog** to begin tracking your jogging.
+5. Click **Stop** to pause or stop tracking.
+6. Click **Reset** to clear the route and stats.
 
-## 🔒 Permissions
+> ⚠️ Note: GPS tracking only works on **HTTPS domains** or **localhost**. Mobile devices provide more accurate results.
 
-This app requires location access from the browser. Make sure you allow it when prompted.
+## 📏 How Distance Is Calculated
+
+This app uses the **Haversine Formula** to measure distance between two geographical points:
+
+Only significant movements (`> 1 meter`) are counted toward the total distance.
