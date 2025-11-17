@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: smart-jogger-deployment
+  labels:
+    app: smartjogger
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: smartjogger
+  template:
+    metadata:
+      labels:
+        app: smartjogger
+    spec:
+      containers:
+      - name: smartjogger-container
+        image: bhavana686/smartjoggeronlyhtmlcss:v1
+        ports:
+        - containerPort: 80
